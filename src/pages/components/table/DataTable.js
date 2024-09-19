@@ -1,4 +1,6 @@
 import React from "react";
+import axios from "axios";
+
 import Content from "../../../layout/content/Content";
 import Head from "../../../layout/head/Head";
 import {
@@ -14,34 +16,29 @@ import {
 import { DataTableData, dataTableColumns, dataTableColumns2, userData } from "./TableData";
 
 const DataTablePage = () => {
+
+
   return (
     <>
-      <Head title="Basic Tables" />
+      <Head title="Homepage" />
       <Content page="component">
         <BlockHead size="lg" wide="sm">
           <BlockHeadContent>
-            <BackTo link="/components" icon="arrow-left">
+            {/* <BackTo link="/components" icon="arrow-left">
               Components
-            </BackTo>
+            </BackTo> */}
             <BlockTitle tag="h2" className="fw-normal">
-              DataTable Example
+              No-Vig App
             </BlockTitle>
             <BlockDes>
               <p className="lead">
-                The tables in this section has used the{" "}
-                <a href="https://react-data-table-component.netlify.app/" target="_blank" rel="noreferrer">
-                  React-Data-Table-Component
-                </a>{" "}
-                package. Visit the{" "}
-                <a href="https://react-data-table-component.netlify.app/" target="_blank" rel="noreferrer">
-                  documentation
-                </a>{" "}
-                for further understanding. The plugin has been customized for the purpose of React Dashlite.
+              The tables in this section show the scoccer games; current games in play, upcoming and live{" "}
+              They show odds and no-vig odds & percentages from some betting houses 
               </p>
             </BlockDes>
           </BlockHeadContent>
         </BlockHead>
-
+{/* 
         <Block size="lg">
           <BlockHead>
             <BlockHeadContent>
@@ -55,15 +52,12 @@ const DataTablePage = () => {
           <PreviewCard>
             <ReactDataTable data={DataTableData} columns={dataTableColumns} expandableRows pagination />
           </PreviewCard>
-        </Block>
+        </Block> */}
 
         <Block size="lg">
           <BlockHead>
             <BlockHeadContent>
-              <BlockTitle tag="h4">DataTable with Export</BlockTitle>
-              <p>
-                Pass in the <code>actions</code> props to add export option to the table.
-              </p>
+              <BlockTitle tag="h4">DataTable with current events (W, D, L)</BlockTitle>
             </BlockHeadContent>
           </BlockHead>
 
@@ -72,7 +66,21 @@ const DataTablePage = () => {
           </PreviewCard>
         </Block>
 
+
         <Block size="lg">
+          <BlockHead>
+            <BlockHeadContent>
+              <BlockTitle tag="h4">DataTable with current events (under & over )</BlockTitle>
+          </BlockHeadContent>
+          </BlockHead>
+
+          <PreviewCard>
+            <ReactDataTable data={DataTableData} columns={dataTableColumns} expandableRows pagination actions />
+          </PreviewCard>
+        </Block>
+
+
+        {/* <Block size="lg">
           <BlockHead>
             <BlockHeadContent>
               <BlockTitle tag="h4">DataTable with custom markup</BlockTitle>
@@ -88,7 +96,7 @@ const DataTablePage = () => {
               selectableRows
             />
           </PreviewCard>
-        </Block>
+        </Block> */}
       </Content>
     </>
   );
