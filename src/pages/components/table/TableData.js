@@ -6,6 +6,7 @@ import React from "react";
 import { UserAvatar, Icon } from "../../../components/Component";
 import { findUpper } from "../../../utils/Utils";
 
+
 export const basicData = {
   header: ["#", "First", "Last"],
   data: [
@@ -30,60 +31,84 @@ export const basicData = {
 export const dataTableColumns = [
   {
     name: "Sport",
-    selector: (row) => row.sport,
+    selector: (row) => row.sportTitle,
     sortable: true,
   },
   {
+    name: "Start Time",
+    selector: (row) => row.commenceTime,
+    sortable: true,
+    hide: 370,
+  },
+  {
     name: "Home",
-    selector: (row) => row.home,
+    selector: (row) => row.homeTeam,
     sortable: true,
     hide: 370,
   },
   {
     name: "Away",
-    selector: (row) => row.away,
+    selector: (row) => row.awayTeam,
     sortable: true,
     hide: "sm",
   },
   {
     name: "Bookmaker",
-    selector: (row) => row.bookmaker,
+    selector: (row) => row.bookmakerTitle,
     sortable: true,
     hide: "sm",
   },
   {
     name: "Win",
-    selector: (row) => row.win,
+    selector: (row) => row.winOdds,
     sortable: true,
     hide: "md",
   },
   {
     name: "Draw",
-    selector: (row) => row.draw,
+    selector: (row) => row.drawOdds,
     sortable: true,
     hide: "md",
   },
   {
     name: "Loss",
-    selector: (row) => row.loss,
+    selector: (row) => row.lossOdds,
     sortable: true,
     hide: "md",
   },
   {
     name: "NV-W",
-    selector: (row) => row.nvw,
+    selector: (row) => row.noVigWinOdds,
     sortable: true,
     hide: "md",
   },
   {
     name: "NV-D",
-    selector: (row) => row.nvd,
+    selector: (row) => row.noVigLossOdds,
     sortable: true,
     hide: "md",
   },
   {
     name: "NV-L",
-    selector: (row) => row.nvl,
+    selector: (row) => row.noVigDrawOdds,
+    sortable: true,
+    hide: "md",
+  },
+  {
+    name: "NV-W%",
+    selector: (row) => row.noVigWinPercentage,
+    sortable: true,
+    hide: "md",
+  },
+  {
+    name: "NV-D%",
+    selector: (row) => row.noVigDrawPercentage,
+    sortable: true,
+    hide: "md",
+  },
+  {
+    name: "NV-L%",
+    selector: (row) => row.noVigLossPercentage,
     sortable: true,
     hide: "md",
   },
@@ -200,202 +225,258 @@ export const dataTableColumns2 = [
   },
 ];
 
-export const DataTableData = [
-  {
-    id: 0,
-    sport: "Francine Kirby",
-    home: 24,
-    away: "female",
-    bookmaker: "BUZZWORKS",
-    win: "2017-02-17",
-    draw: "$2,570.39",
-    loss: "4515",
-    nvw:"52258",
-    nvd:"89566",
-    nvl:"8595"
-  },
-  {
-    id: 1,
-    sport: "Reva Best",
-    home: 40,
-    away: "female",
-    bookmaker: "MARQET",
-    win: "2021-10-14",
-    draw: "$1,488.76",
-    loss: "4515",
-    nvw:"52258",
-    nvd:"89566",
-    nvl:"8595"
-  },
-  {
-    id: 2,
-    sport: "Alexis Flores",
-    home: 21,
-    away: "female",
-    bookmaker: "OBONES",
-    win: "2020-04-28",
-    draw: "$1,336.93",
-    loss: "4515",
-    nvw:"52258",
-    nvd:"89566",
-    nvl:"8595"
-  },
-  {
-    id: 3,
-    sport: "Nixon Sullivan",
-    home: 30,
-    away: "male",
-    bookmaker: "SLUMBERIA",
-    win: "2016-10-08",
-    draw: "$2,156.70",
-    loss: "4515",
-    nvw:"52258",
-    nvd:"89566",
-    nvl:"8595"
-  },
-  {
-    id: 4,
-    sport: "Foreman Wooten",
-    home: 20,
-    away: "male",
-    bookmaker: "ESCENTA",
-    win: "2018-07-12",
-    draw: "$3,057.42",
-    loss: "4515",
-    nvw:"52258",
-    nvd:"89566",
-    nvl:"8595"
-  },
-  {
-    id: 5,
-    sport: "Franco Davis",
-    home: 28,
-    away: "male",
-    bookmaker: "ZILLACON",
-    win: "2015-10-08",
-    draw: "$2,730.88",
-    loss: "4515",
-    nvw:"52258",
-    nvd:"89566",
-    nvl:"8595"
-  },
-  {
-    id: 6,
-    sport: "Bullock Kline",
-    home: 32,
-    away: "male",
-    bookmaker: "SAVVY",
-    win: "2017-07-03",
-    draw: "$2,986.05",
-    loss: "4515",
-    nvw:"52258",
-    nvd:"89566",
-    nvl:"8595"
-  },
-  {
-    id: 7,
-    sport: "Baird Coffey",
-    home: 36,
-    away: "male",
-    bookmaker: "BLEENDOT",
-    win: "2014-01-27",
-    draw: "$2,755.80",
-    loss: "4515",
-    nvw:"52258",
-    nvd:"89566",
-    nvl:"8595"
-  },
-  {
-    id: 8,
-    sport: "Eula Walters",
-    home: 40,
-    away: "female",
-    bookmaker: "UXMOX",
-    win: "2020-09-19",
-    draw: "$3,302.75",
-    loss: "4515",
-    nvw:"52258",
-    nvd:"89566",
-    nvl:"8595"
-  },
-  {
-    id: 9,
-    sport: "Gaines Moss",
-    home: 26,
-    away: "male",
-    bookmaker: "INCUBUS",
-    win: "2017-10-13",
-    draw: "$3,856.24",
-    loss: "4515",
-    nvw:"52258",
-    nvd:"89566",
-    nvl:"8595"
-  },
-  {
-    id: 10,
-    sport: "Sargent Winters",
-    home: 28,
-    away: "male",
-    bookmaker: "AUSTEX",
-    win: "2020-12-26",
-    draw: "$3,668.64",
-    nvw:"52258",
-    nvd:"89566",
-    nvl:"8595"
-  },
-  {
-    id: 11,
-    sport: "Sybil Patton",
-    home: 35,
-    away: "female",
-    bookmaker: "ZILIDIUM",
-    win: "2020-06-19",
-    draw: "$1,987.14",
-    loss: "4515",
-    nvw:"52258",
-    nvd:"89566",
-    nvl:"8595"
-  },
-  {
-    id: 12,
-    sport: "Henderson Elliott",
-    home: 39,
-    away: "male",
-    bookmaker: "ZOARERE",
-    win: "2016-08-16",
-    draw: "$1,795.31",
-    loss: "4515",
-    nvw:"52258",
-    nvd:"89566",
-    nvl:"8595"
-  },
-  {
-    id: 13,
-    sport: "Combs Irwin",
-    home: 33,
-    away: "male",
-    bookmaker: "COLAIRE",
-    win: "2017-07-19",
-    draw: "$2,396.73",
-    loss: "4515",
-    nvw:"52258",
-    nvd:"89566",
-    nvl:"8595"
-  },
-  {
-    id: 14,
-    sport: "Fleming Buchanan",
-    home: 33,
-    away: "male",
-    bookmaker: "WEBIOTIC",
-    win: "2021-09-12",
-    draw: "$3,406.96",
-    loss: "4515",
-    nvw:"52258",
-    nvd:"89566",
-    nvl:"8595"
-  },
-  // {
+// export const DataTableData = async () => {
+//   try {
+//     const response = await axios.get(`https://api.the-odds-api.com/v4/sports/upcoming/odds/?regions=us&markets=h2h&apiKey=${process.env.REACT_APP_API_KEY}`); // Replace with your API URL
+//     const data = response.data;
+//   console.log(data)
+
+//      // Ensure data is an array
+//      if (!Array.isArray(data)) {
+//       throw new Error("API response is not an array");
+//     }
+    // Map the data from the API to the desired structure
+    // return data.map((item) => {
+      // const winOdds = item.odds.win; // Adjust based on actual API response
+      // const drawOdds = item.odds.draw; // Adjust based on actual API response
+      // const lossOdds = item.odds.loss; // Adjust based on actual API response
+
+      // // Calculate the vig
+      // const vig = (1 / winOdds) + (1 / drawOdds) + (1 / lossOdds) - 1;
+
+      // // Calculate no-vig odds
+      // const noVigWinOdds = 1 / ((1 / winOdds) + vig);
+      // const noVigDrawOdds = 1 / ((1 / drawOdds) + vig);
+      // const noVigLossOdds = 1 / ((1 / lossOdds) + vig);
+
+      // // Calculate percentages
+      // const noVigWinPercentage = (1 / noVigWinOdds) * 100;
+      // const noVigDrawPercentage = (1 / noVigDrawOdds) * 100;
+      // const noVigLossPercentage = (1 / noVigLossOdds) * 100;
+
+      // return {
+      //   id: item.id,
+      //   sport_title: item.sport_title,
+      //   home: item.home_team, // Adjust based on actual API response
+      //   away: item.away_team, // Adjust based on actual API response
+        // bookmaker: item.bookmaker, // Adjust based on actual API response
+        // win: winOdds,
+        // draw: drawOdds,
+        // loss: lossOdds,
+        // no_vig_win: noVigWinOdds,
+        // no_vig_draw: noVigDrawOdds,
+        // no_vig_loss: noVigLossOdds,
+        // win_percentage: item.odds.win_percentage, // Adjust based on actual API response
+        // draw_percentage: item.odds.draw_percentage, // Adjust based on actual API response
+        // loss_percentage: item.odds.loss_percentage, // Adjust based on actual API response
+        // no_vig_win_percentage: noVigWinPercentage,
+        // no_vig_draw_percentage: noVigDrawPercentage,
+        // no_vig_loss_percentage: noVigLossPercentage,
+    //   };
+    // });
+//   } catch (error) {
+//     console.error('Error fetching data:', error);
+//     throw error; // Re-throw the error for handling in the calling function
+//   }
+// };
+
+
+// export const DataTableData = [
+//   {
+//     id: 0,
+//     sport: "Francine Kirby",
+//     home: 24,
+//     away: "female",
+//     bookmaker: "BUZZWORKS",
+//     win: "2017-02-17",
+//     draw: "$2,570.39",
+//     loss: "4515",
+//     nvw:"52258",
+//     nvd:"89566",
+//     nvl:"8595"
+//   },
+//   {
+//     id: 1,
+//     sport: "Reva Best",
+//     home: 40,
+//     away: "female",
+//     bookmaker: "MARQET",
+//     win: "2021-10-14",
+//     draw: "$1,488.76",
+//     loss: "4515",
+//     nvw:"52258",
+//     nvd:"89566",
+//     nvl:"8595"
+//   },
+//   {
+//     id: 2,
+//     sport: "Alexis Flores",
+//     home: 21,
+//     away: "female",
+//     bookmaker: "OBONES",
+//     win: "2020-04-28",
+//     draw: "$1,336.93",
+//     loss: "4515",
+//     nvw:"52258",
+//     nvd:"89566",
+//     nvl:"8595"
+//   },
+//   {
+//     id: 3,
+//     sport: "Nixon Sullivan",
+//     home: 30,
+//     away: "male",
+//     bookmaker: "SLUMBERIA",
+//     win: "2016-10-08",
+//     draw: "$2,156.70",
+//     loss: "4515",
+//     nvw:"52258",
+//     nvd:"89566",
+//     nvl:"8595"
+//   },
+//   {
+//     id: 4,
+//     sport: "Foreman Wooten",
+//     home: 20,
+//     away: "male",
+//     bookmaker: "ESCENTA",
+//     win: "2018-07-12",
+//     draw: "$3,057.42",
+//     loss: "4515",
+//     nvw:"52258",
+//     nvd:"89566",
+//     nvl:"8595"
+//   },
+//   {
+//     id: 5,
+//     sport: "Franco Davis",
+//     home: 28,
+//     away: "male",
+//     bookmaker: "ZILLACON",
+//     win: "2015-10-08",
+//     draw: "$2,730.88",
+//     loss: "4515",
+//     nvw:"52258",
+//     nvd:"89566",
+//     nvl:"8595"
+//   },
+//   {
+//     id: 6,
+//     sport: "Bullock Kline",
+//     home: 32,
+//     away: "male",
+//     bookmaker: "SAVVY",
+//     win: "2017-07-03",
+//     draw: "$2,986.05",
+//     loss: "4515",
+//     nvw:"52258",
+//     nvd:"89566",
+//     nvl:"8595"
+//   },
+//   {
+//     id: 7,
+//     sport: "Baird Coffey",
+//     home: 36,
+//     away: "male",
+//     bookmaker: "BLEENDOT",
+//     win: "2014-01-27",
+//     draw: "$2,755.80",
+//     loss: "4515",
+//     nvw:"52258",
+//     nvd:"89566",
+//     nvl:"8595"
+//   },
+//   {
+//     id: 8,
+//     sport: "Eula Walters",
+//     home: 40,
+//     away: "female",
+//     bookmaker: "UXMOX",
+//     win: "2020-09-19",
+//     draw: "$3,302.75",
+//     loss: "4515",
+//     nvw:"52258",
+//     nvd:"89566",
+//     nvl:"8595"
+//   },
+//   {
+//     id: 9,
+//     sport: "Gaines Moss",
+//     home: 26,
+//     away: "male",
+//     bookmaker: "INCUBUS",
+//     win: "2017-10-13",
+//     draw: "$3,856.24",
+//     loss: "4515",
+//     nvw:"52258",
+//     nvd:"89566",
+//     nvl:"8595"
+//   },
+//   {
+//     id: 10,
+//     sport: "Sargent Winters",
+//     home: 28,
+//     away: "male",
+//     bookmaker: "AUSTEX",
+//     win: "2020-12-26",
+//     draw: "$3,668.64",
+//     nvw:"52258",
+//     nvd:"89566",
+//     nvl:"8595"
+//   },
+//   {
+//     id: 11,
+//     sport: "Sybil Patton",
+//     home: 35,
+//     away: "female",
+//     bookmaker: "ZILIDIUM",
+//     win: "2020-06-19",
+//     draw: "$1,987.14",
+//     loss: "4515",
+//     nvw:"52258",
+//     nvd:"89566",
+//     nvl:"8595"
+//   },
+//   {
+//     id: 12,
+//     sport: "Henderson Elliott",
+//     home: 39,
+//     away: "male",
+//     bookmaker: "ZOARERE",
+//     win: "2016-08-16",
+//     draw: "$1,795.31",
+//     loss: "4515",
+//     nvw:"52258",
+//     nvd:"89566",
+//     nvl:"8595"
+//   },
+//   {
+//     id: 13,
+//     sport: "Combs Irwin",
+//     home: 33,
+//     away: "male",
+//     bookmaker: "COLAIRE",
+//     win: "2017-07-19",
+//     draw: "$2,396.73",
+//     loss: "4515",
+//     nvw:"52258",
+//     nvd:"89566",
+//     nvl:"8595"
+//   },
+//   {
+//     id: 14,
+//     sport: "Fleming Buchanan",
+//     home: 33,
+//     away: "male",
+//     bookmaker: "WEBIOTIC",
+//     win: "2021-09-12",
+//     draw: "$3,406.96",
+//     loss: "4515",
+//     nvw:"52258",
+//     nvd:"89566",
+//     nvl:"8595"
+//   },
+//   // {
   //   id: 15,
   //   name: "Mcbride Dixon",
   //   home: 25,
@@ -710,7 +791,7 @@ export const DataTableData = [
   //   win: "2018-09-05",
   //   draw: "$1,115.62",
   // },
-];
+// ];
 
 export const userData = [
   {

@@ -29,7 +29,6 @@ const Export = ({ data }) => {
   const copyToClipboard = () => {
     setModal(true);
   };
-
   return (
     <React.Fragment>
       <div className="dt-export-buttons d-flex align-center">
@@ -61,19 +60,50 @@ const Export = ({ data }) => {
 };
 
 const ExpandableRowComponent = ({ data }) => {
+  console.log(data.sport_title)
   return (
     <ul className="dtr-details p-2 border-bottom ms-1">
       <li className="d-block d-sm-none">
-        <span className="dtr-title">Company</span> <span className="dtr-data">{data.company}</span>
+        <span className="dtr-title">Sport</span> <span className="dtr-data">{data.sportTitle}</span>
       </li>
       <li className="d-block d-sm-none">
-        <span className="dtr-title ">Gender</span> <span className="dtr-data">{data.gender}</span>
+        <span className="dtr-title ">Start Time</span> <span className="dtr-data">{data.commenceTime}</span>
+      </li>
+      <li className="d-block d-sm-none">
+        <span className="dtr-title ">Home</span> <span className="dtr-data">{data.homeTeam}</span>
       </li>
       <li>
-        <span className="dtr-title">Start Date</span> <span className="dtr-data">{data.startDate}</span>
+        <span className="dtr-title">Away</span> <span className="dtr-data">{data.awayTeam}</span>
       </li>
       <li>
-        <span className="dtr-title">Salary</span> <span className="dtr-data">{data.salary}</span>
+        <span className="dtr-title">Bookmaker</span> <span className="dtr-data">{data.bookmakerTitle}</span>
+      </li>
+      <li>
+        <span className="dtr-title">Win</span> <span className="dtr-data">{data.winOdds}</span>
+      </li>
+      <li>
+        <span className="dtr-title">Draw</span> <span className="dtr-data">{data.drawOdds}</span>
+      </li>
+      <li>
+        <span className="dtr-title">Loss</span> <span className="dtr-data">{data.lossOdds}</span>
+      </li>
+      <li>
+        <span className="dtr-title">NV-W</span> <span className="dtr-data">{data.noVigWinOdds}</span>
+      </li>
+      <li>
+        <span className="dtr-title">NV-D</span> <span className="dtr-data">{data.noVigDrawOdds}</span>
+      </li>
+      <li>
+        <span className="dtr-title">NV-L</span> <span className="dtr-data">{data.noVigLossOdds}</span>
+      </li>
+      <li>
+        <span className="dtr-title">NV-W%</span> <span className="dtr-data">{data.noVigWinPercentage}</span>
+      </li>
+      <li>
+        <span className="dtr-title">NV-D%</span> <span className="dtr-data">{data.noVigDrawPercentage}</span>
+      </li>
+      <li>
+        <span className="dtr-title">NV-L%</span> <span className="dtr-data">{data.noVigLossPercentage}</span>
       </li>
     </ul>
   );
@@ -82,14 +112,14 @@ const ExpandableRowComponent = ({ data }) => {
 const CustomCheckbox = React.forwardRef(({ onClick, ...rest }, ref) => (
   <div className="custom-control custom-control-sm custom-checkbox notext">
     <input
-      id={rest.name}
+      id={rest.sportTitle}
       type="checkbox"
       className="custom-control-input"
       ref={ref}
       onClick={onClick}
       {...rest}
     />
-    <label className="custom-control-label" htmlFor={rest.name} />
+    <label className="custom-control-label" htmlFor={rest.sportTitle} />
   </div>
 ));
 
@@ -103,7 +133,7 @@ const ReactDataTable = ({ data, columns, pagination, actions, className, selecta
     let defaultData = tableData;
     if (searchText !== "") {
       defaultData = data.filter((item) => {
-        return item.name.toLowerCase().includes(searchText.toLowerCase());
+        return item.sportTitle.toLowerCase().includes(searchText.toLowerCase());
       });
       setTableData(defaultData);
     } else {
@@ -137,7 +167,7 @@ const ReactDataTable = ({ data, columns, pagination, actions, className, selecta
               <input
                 type="search"
                 className="form-control form-control-sm"
-                placeholder="Search by name"
+                placeholder="Search by sport"
                 onChange={(ev) => setSearchText(ev.target.value)}
               />
             </label>
