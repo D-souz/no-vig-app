@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/no-vig-app/static/css/main.14d67471.css",
+    "main.js": "/no-vig-app/static/js/main.6daf660c.js",
+    "static/js/27.95ae2fb2.chunk.js": "/no-vig-app/static/js/27.95ae2fb2.chunk.js",
+    "static/media/Nioicon.svg": "/no-vig-app/static/media/Nioicon.d007f9db7f24785f8b0e.svg",
+    "static/media/Nioicon.eot": "/no-vig-app/static/media/Nioicon.bba4409416c9637918b5.eot",
+    "static/media/Nioicon.woff": "/no-vig-app/static/media/Nioicon.a28a77fd273fd6efac97.woff",
+    "static/media/Nioicon.ttf": "/no-vig-app/static/media/Nioicon.444f6daeb0a92c6c5772.ttf",
+    "static/media/Roboto-Medium.eot": "/no-vig-app/static/media/Roboto-Medium.f9f0c87146a33023da7e.eot",
+    "static/media/Roboto-Medium.ttf": "/no-vig-app/static/media/Roboto-Medium.ef677e217f2009c16854.ttf",
+    "static/media/Roboto-Regular.eot": "/no-vig-app/static/media/Roboto-Regular.30b57652c88c5dbd65de.eot",
+    "static/media/Roboto-Regular.ttf": "/no-vig-app/static/media/Roboto-Regular.25e40da956314b12d333.ttf",
+    "static/media/Roboto-Bold.eot": "/no-vig-app/static/media/Roboto-Bold.6490694b37b0ee09bd91.eot",
+    "static/media/Roboto-Bold.ttf": "/no-vig-app/static/media/Roboto-Bold.5e9f6556d3c0bf6230f0.ttf",
+    "static/media/Roboto-Light.eot": "/no-vig-app/static/media/Roboto-Light.d592a653abb7a57fedd8.eot",
+    "static/media/Roboto-Light.ttf": "/no-vig-app/static/media/Roboto-Light.13d61ef8e609b548d9b5.ttf",
+    "static/media/Nunito-Bold.eot": "/no-vig-app/static/media/Nunito-Bold.e27ea467dec25b955462.eot",
+    "static/media/Nunito-Bold.ttf": "/no-vig-app/static/media/Nunito-Bold.8ba6a7a7e0169f77db85.ttf",
+    "static/media/Nunito-Regular.eot": "/no-vig-app/static/media/Nunito-Regular.0d892eb9e31aa704e278.eot",
+    "static/media/Nunito-Regular.ttf": "/no-vig-app/static/media/Nunito-Regular.ec917e24481d16cb20db.ttf",
+    "static/media/Roboto-Medium.woff": "/no-vig-app/static/media/Roboto-Medium.b14ca2d2b289afceb0b0.woff",
+    "static/media/Roboto-Bold.woff": "/no-vig-app/static/media/Roboto-Bold.3f2cbde6b72e8d05669f.woff",
+    "static/media/Roboto-Regular.woff": "/no-vig-app/static/media/Roboto-Regular.31012f9b3e3da44f87e8.woff",
+    "static/media/Roboto-Light.woff": "/no-vig-app/static/media/Roboto-Light.df0f59d80526acc6d0cd.woff",
+    "static/media/Roboto-Medium.woff2": "/no-vig-app/static/media/Roboto-Medium.fc0337b9cf1cce2e6e1e.woff2",
+    "static/media/Roboto-Bold.woff2": "/no-vig-app/static/media/Roboto-Bold.6cd35edfbc0d7a417131.woff2",
+    "static/media/Roboto-Regular.woff2": "/no-vig-app/static/media/Roboto-Regular.a25806274237d06e00a6.woff2",
+    "static/media/Roboto-Light.woff2": "/no-vig-app/static/media/Roboto-Light.d537674e9e217fa53a13.woff2",
+    "static/media/Nunito-Bold.woff": "/no-vig-app/static/media/Nunito-Bold.96c334093cfb13c7391f.woff",
+    "static/media/Nunito-Regular.woff": "/no-vig-app/static/media/Nunito-Regular.1fabf212467e5ff96044.woff",
+    "static/media/Nunito-Bold.woff2": "/no-vig-app/static/media/Nunito-Bold.455e421c608806fdf8c8.woff2",
+    "static/media/Nunito-Regular.woff2": "/no-vig-app/static/media/Nunito-Regular.6b9b90c58fb9657aaa8e.woff2",
+    "static/media/tinymce-mobile.woff?8x92w3": "/no-vig-app/static/media/tinymce-mobile.58fc024c65dca91a1dad.woff",
+    "index.html": "/no-vig-app/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.14d67471.css",
+    "static/js/main.6daf660c.js"
+  ]
+}
