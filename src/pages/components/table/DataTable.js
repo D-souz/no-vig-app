@@ -14,7 +14,7 @@ import {
   ReactDataTable,
 } from "../../../components/Component";
 import {dataTableColumns, dataTableColumns2, userData } from "./TableData";
-
+// https://api.the-odds-api.com/v4/sports/upcoming/odds/?regions=us&markets=totals&apiKey=2a3df764ad8efe6837491d7388507664
 const DataTablePage = () => {
 const [DataTableData, setDataTableData] = useState([]);
 const [loading, setLoading] = useState(true); // State to manage loading
@@ -165,9 +165,9 @@ const formatCommenceTime = (commenceTime) => {
           </BlockHeadContent>
           </BlockHead>
 
-          <PreviewCard>
+          {/* <PreviewCard>
             <ReactDataTable data={DataTableData} columns={dataTableColumns} expandableRows pagination actions />
-          </PreviewCard>
+          </PreviewCard> */}
         </Block>
 
       </Content>
