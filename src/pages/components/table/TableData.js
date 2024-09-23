@@ -84,13 +84,13 @@ export const dataTableColumns = [
   },
   {
     name: "NV-D",
-    selector: (row) => row.noVigLossOdds,
+    selector: (row) => row.noVigDrawOdds,
     sortable: true,
     hide: "md",
   },
   {
     name: "NV-L",
-    selector: (row) => row.noVigDrawOdds,
+    selector: (row) => row.noVigLossOdds,
     sortable: true,
     hide: "md",
   },
