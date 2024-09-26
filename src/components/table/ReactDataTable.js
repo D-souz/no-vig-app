@@ -60,7 +60,6 @@ const Export = ({ data }) => {
 };
 
 const ExpandableRowComponent = ({ data }) => {
-  console.log(data.sport_title)
   return (
     <ul className="dtr-details p-2 border-bottom ms-1">
       <li className="d-block d-sm-none">
@@ -108,6 +107,53 @@ const ExpandableRowComponent = ({ data }) => {
     </ul>
   );
 };
+
+const ExpandableRowComponent2 = ({ data }) => {
+  return (
+    <ul className="dtr-details p-2 border-bottom ms-1">
+      <li className="d-block d-sm-none">
+        <span className="dtr-title">Sport</span> <span className="dtr-data">{data.sportTitle}</span>
+      </li>
+      <li className="d-block d-sm-none">
+        <span className="dtr-title ">Start Time</span> <span className="dtr-data">{data.commenceTime}</span>
+      </li>
+      <li className="d-block d-sm-none">
+        <span className="dtr-title ">Home</span> <span className="dtr-data">{data.homeTeam}</span>
+      </li>
+      <li>
+        <span className="dtr-title">Away</span> <span className="dtr-data">{data.awayTeam}</span>
+      </li>
+      <li>
+        <span className="dtr-title">Bookmaker</span> <span className="dtr-data">{data.bookmakerTitle}</span>
+      </li>
+      <li>
+        <span className="dtr-title">Points (Over)</span> <span className="dtr-data">{data.points}</span>
+      </li>
+      <li>
+        <span className="dtr-title">Over</span> <span className="dtr-data">{data.overOdds}</span>
+      </li>
+      <li>
+        <span className="dtr-title">No-Vig Over</span> <span className="dtr-data">{data.noVigOverOdds}</span>
+      </li>
+      <li>
+        <span className="dtr-title">Over%</span> <span className="dtr-data">{data.noVigOverPercentage}</span>
+      </li>
+      <li>
+        <span className="dtr-title">Points (Under)</span> <span className="dtr-data">{data.points}</span>
+      </li>
+      <li>
+        <span className="dtr-title">Under</span> <span className="dtr-data">{data.underOdds}</span>
+      </li>
+      <li>
+        <span className="dtr-title">No-Vig Under</span> <span className="dtr-data">{data.noVigUnderOdds}</span>
+      </li>
+      <li>
+        <span className="dtr-title">Under%</span> <span className="dtr-data">{data.noVigUnderPercentage}</span>
+      </li>
+    </ul>
+  );
+};
+
 
 const CustomCheckbox = React.forwardRef(({ onClick, ...rest }, ref) => (
   <div className="custom-control custom-control-sm custom-checkbox notext">
@@ -157,7 +203,6 @@ const ReactDataTable = ({ data, columns, pagination, actions, className, selecta
       window.removeEventListener("resize", viewChange);
     };
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
   return (
     <div className={`dataTables_wrapper dt-bootstrap4 no-footer ${className ? className : ""}`}>
       <Row className={`justify-between g-2 ${actions ? "with-export" : ""}`}>

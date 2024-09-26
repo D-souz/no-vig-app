@@ -13,10 +13,12 @@ import {
   PreviewCard,
   ReactDataTable,
 } from "../../../components/Component";
-import {dataTableColumns, dataTableColumns2, userData } from "./TableData";
-// https://api.the-odds-api.com/v4/sports/upcoming/odds/?regions=us&markets=totals&apiKey=2a3df764ad8efe6837491d7388507664
+import {dataTableColumns, dataTableColumns2 } from "./TableData";
+
+
 const DataTablePage = () => {
 const [DataTableData, setDataTableData] = useState([]);
+const [OverUnderData, setOverUnderData] = useState([]);
 const [loading, setLoading] = useState(true); // State to manage loading
 const [error, setError] = useState(null); // State to manage errors
 
@@ -53,7 +55,7 @@ const formatCommenceTime = (commenceTime) => {
   };
 
 
-    // Fetch data function
+    // Fetch data function for table 1
     const fetchData = async () => {
       try {
         const response = await axios.get(`https://api.the-odds-api.com/v4/sports/upcoming/odds/?regions=us&markets=h2h&apiKey=${process.env.REACT_APP_API_KEY}`);
@@ -115,15 +117,80 @@ const formatCommenceTime = (commenceTime) => {
       }
     };
 
+    // fetch data for table 2
+
+    const fetchOverUnderData = async () => {
+      try {
+        const response = await axios.get(`https://api.the-odds-api.com/v4/sports/upcoming/odds/?regions=us&markets=totals&apiKey=${process.env.REACT_APP_API_KEY}`); // Replace with your Over/Under API URL
+        const rawData = response.data;
+    
+        const results = rawData.map(event => {
+          const sportTitle = event.sport_title;
+          const commenceTime = event.commence_time;
+          const formattedCommenceTime = formatCommenceTime(commenceTime);
+          const homeTeam = event.home_team;
+          const awayTeam = event.away_team;
+    
+          return event.bookmakers.map(bookmaker => {
+            const bookmakerTitle = bookmaker.title;
+            const totalsMarket = bookmaker.markets.find(market => market.key === 'totals');
+            const outcomes = totalsMarket ? totalsMarket.outcomes : [];
+    
+            const overOutcome = outcomes.find(outcome => outcome.name === 'Over');
+            const underOutcome = outcomes.find(outcome => outcome.name === 'Under');
+    
+            const overOdds = overOutcome ? overOutcome.price : null;
+            const underOdds = underOutcome ? underOutcome.price : null;
+            const points = overOutcome ? overOutcome.point : null; // Assuming points are the same for Over and Under
+    
+            let noVigOverOdds = null;
+            let noVigUnderOdds = null;
+            let noVigOverPercentage = null;
+            let noVigUnderPercentage = null;
+    
+            if (overOdds && underOdds) {
+              const vig = (1 / overOdds) + (1 / underOdds) - 1;
+    
+              noVigOverOdds = (1 / ((1 / overOdds) + vig)).toFixed(3);
+              noVigUnderOdds = (1 / ((1 / underOdds) + vig)).toFixed(3);
+    
+              noVigOverPercentage = (1 / noVigOverOdds) * 100;
+              noVigUnderPercentage = (1 / noVigUnderOdds) * 100;
+            }
+    
+            return {
+              sportTitle,
+              commenceTime: formattedCommenceTime,
+              homeTeam,
+              awayTeam,
+              bookmakerTitle,
+              overOdds,
+              underOdds,
+              points,
+              noVigOverOdds,
+              noVigUnderOdds,
+              noVigOverPercentage,
+              noVigUnderPercentage,
+            };
+          });
+        }).flat();
+    
+        setOverUnderData(results); // Set the Over/Under odds data
+      } catch (error) {
+        setError('Error fetching Over/Under data');
+        console.error('Error fetching Over/Under data:', error);
+      }
+    };
+
     useEffect(() => {
-      fetchData(); // Call the fetchData function on component mount
+      fetchData(); // data for table 1
+      fetchOverUnderData() // data for table 2
     }, []);
   
     // Conditional rendering based on loading and error state
     if (loading) return <div>Loading...</div>;
     if (error) return <div>{error}</div>;
 
-    console.log(DataTableData)
   return (
     <>
       <Head title="Homepage" />
@@ -165,9 +232,9 @@ const formatCommenceTime = (commenceTime) => {
           </BlockHeadContent>
           </BlockHead>
 
-          {/* <PreviewCard>
-            <ReactDataTable data={DataTableData} columns={dataTableColumns} expandableRows pagination actions />
-          </PreviewCard> */}
+          <PreviewCard>
+            <ReactDataTable data={OverUnderData} columns={dataTableColumns2} expandableRows pagination actions />
+          </PreviewCard>
         </Block>
 
       </Content>

@@ -116,114 +116,182 @@ export const dataTableColumns = [
 
 export const dataTableColumns2 = [
   {
-    name: "User",
-    selector: (row) => row.name,
-    compact: true,
-    grow: 2,
-    style: { paddingRight: "20px" },
-    cell: (row) => (
-      <div className="user-card mt-2 mb-2">
-        <UserAvatar theme={row.avatarBg} text={findUpper(row.name)} image={row.image}></UserAvatar>
-        <div className="user-info">
-          <span className="tb-lead">
-            {row.name}{" "}
-            <span
-              className={`dot dot-${
-                row.status === "Active" ? "success" : row.status === "Pending" ? "warning" : "danger"
-              } d-md-none ms-1`}
-            ></span>
-          </span>
-          <span>{row.email}</span>
-        </div>
-      </div>
-    ),
+    name: 'Sport',
+    selector: row => row.sportTitle,
     sortable: true,
   },
   {
-    name: "Balance",
-    selector: (row) => row.balance,
-    minWidth: "140px",
-    cell: (row) => (
-      <span className="tb-amount">
-        {row.balance} <span className="currency">USD</span>
-      </span>
-    ),
+    name: 'Start Time',
+    selector: row => row.commenceTime,
     sortable: true,
-    hide: 480,
   },
   {
-    name: "Phone",
-    selector: (row) => row.phone,
+    name: 'Home',
+    selector: row => row.homeTeam,
     sortable: true,
-    cell: (row) => <span>{row.phone}</span>,
-    hide: "md",
   },
   {
-    name: "Verified",
-    selector: (row) => row.verified,
+    name: 'Away',
+    selector: row => row.awayTeam,
     sortable: true,
-    minWidth: "170px",
-    hide: "md",
-    cell: (row) => (
-      <ul className="list-status d-flex">
-        <li>
-          <Icon
-            className={`text-${
-              row.emailStatus === "success" ? "success" : row.emailStatus === "pending" ? "info" : "secondary"
-            }`}
-            name={`${
-              row.emailStatus === "success"
-                ? "check-circle"
-                : row.emailStatus === "alert"
-                ? "alert-circle"
-                : "alarm-alt"
-            }`}
-          ></Icon>{" "}
-          <span>Email</span>
-        </li>
-        <li>
-          <Icon
-            className={`text-${
-              row.kycStatus === "success"
-                ? "success"
-                : row.kycStatus === "pending"
-                ? "info"
-                : row.kycStatus === "warning"
-                ? "warning"
-                : "secondary"
-            }`}
-            name={`${
-              row.kycStatus === "success" ? "check-circle" : row.kycStatus === "pending" ? "alarm-alt" : "alert-circle"
-            }`}
-          ></Icon>{" "}
-          <span>KYC</span>
-        </li>
-      </ul>
-    ),
   },
   {
-    name: "Last Login",
-    selector: (row) => row.lastLogin,
+    name: 'Bookmaker',
+    selector: row => row.bookmakerTitle,
     sortable: true,
-    cell: (row) => <span>{row.lastLogin}</span>,
-    hide: "lg",
   },
   {
-    name: "Status",
-    selector: (row) => row.status,
+    name: 'Points (Over)',
+    selector: row => row.points !== null ? row.points : 'N/A',
     sortable: true,
-    hide: "sm",
-    cell: (row) => (
-      <span
-        className={`tb-status ms-1 text-${
-          row.status === "Active" ? "success" : row.status === "Pending" ? "warning" : "danger"
-        }`}
-      >
-        {row.status}
-      </span>
-    ),
+  },
+  {
+    name: 'Over',
+    selector: row => row.overOdds !== null ? row.overOdds : 'N/A',
+    sortable: true,
+  },
+  {
+    name: 'No-Vig Over',
+    selector: row => row.noVigOverOdds !== null ? row.noVigOverOdds : 'N/A',
+    sortable: true,
+  },
+  {
+    name: 'Over%',
+    selector: row => row.noVigOverPercentage !== null ? row.noVigOverPercentage.toFixed(2) + '%' : 'N/A',
+    sortable: true,
+  },
+  {
+    name: 'Points (Under)',
+    selector: row => row.points !== null ? row.points : 'N/A', // Assuming points are the same for Under
+    sortable: true,
+  },
+  {
+    name: 'Under',
+    selector: row => row.underOdds !== null ? row.underOdds : 'N/A',
+    sortable: true,
+  },
+  {
+    name: 'No-Vig Under',
+    selector: row => row.noVigUnderOdds !== null ? row.noVigUnderOdds : 'N/A',
+    sortable: true,
+  },
+  {
+    name: 'Under%',
+    selector: row => row.noVigUnderPercentage !== null ? row.noVigUnderPercentage.toFixed(2) + '%' : 'N/A',
+    sortable: true,
   },
 ];
+
+// export const dataTableColumns2 = [
+//   {
+//     name: "User",
+//     selector: (row) => row.name,
+//     compact: true,
+//     grow: 2,
+//     style: { paddingRight: "20px" },
+//     cell: (row) => (
+//       <div className="user-card mt-2 mb-2">
+//         <UserAvatar theme={row.avatarBg} text={findUpper(row.name)} image={row.image}></UserAvatar>
+//         <div className="user-info">
+//           <span className="tb-lead">
+//             {row.name}{" "}
+//             <span
+//               className={`dot dot-${
+//                 row.status === "Active" ? "success" : row.status === "Pending" ? "warning" : "danger"
+//               } d-md-none ms-1`}
+//             ></span>
+//           </span>
+//           <span>{row.email}</span>
+//         </div>
+//       </div>
+//     ),
+//     sortable: true,
+//   },
+//   {
+//     name: "Balance",
+//     selector: (row) => row.balance,
+//     minWidth: "140px",
+//     cell: (row) => (
+//       <span className="tb-amount">
+//         {row.balance} <span className="currency">USD</span>
+//       </span>
+//     ),
+//     sortable: true,
+//     hide: 480,
+//   },
+//   {
+//     name: "Phone",
+//     selector: (row) => row.phone,
+//     sortable: true,
+//     cell: (row) => <span>{row.phone}</span>,
+//     hide: "md",
+//   },
+//   {
+//     name: "Verified",
+//     selector: (row) => row.verified,
+//     sortable: true,
+//     minWidth: "170px",
+//     hide: "md",
+//     cell: (row) => (
+//       <ul className="list-status d-flex">
+//         <li>
+//           <Icon
+//             className={`text-${
+//               row.emailStatus === "success" ? "success" : row.emailStatus === "pending" ? "info" : "secondary"
+//             }`}
+//             name={`${
+//               row.emailStatus === "success"
+//                 ? "check-circle"
+//                 : row.emailStatus === "alert"
+//                 ? "alert-circle"
+//                 : "alarm-alt"
+//             }`}
+//           ></Icon>{" "}
+//           <span>Email</span>
+//         </li>
+//         <li>
+//           <Icon
+//             className={`text-${
+//               row.kycStatus === "success"
+//                 ? "success"
+//                 : row.kycStatus === "pending"
+//                 ? "info"
+//                 : row.kycStatus === "warning"
+//                 ? "warning"
+//                 : "secondary"
+//             }`}
+//             name={`${
+//               row.kycStatus === "success" ? "check-circle" : row.kycStatus === "pending" ? "alarm-alt" : "alert-circle"
+//             }`}
+//           ></Icon>{" "}
+//           <span>KYC</span>
+//         </li>
+//       </ul>
+//     ),
+//   },
+//   {
+//     name: "Last Login",
+//     selector: (row) => row.lastLogin,
+//     sortable: true,
+//     cell: (row) => <span>{row.lastLogin}</span>,
+//     hide: "lg",
+//   },
+//   {
+//     name: "Status",
+//     selector: (row) => row.status,
+//     sortable: true,
+//     hide: "sm",
+//     cell: (row) => (
+//       <span
+//         className={`tb-status ms-1 text-${
+//           row.status === "Active" ? "success" : row.status === "Pending" ? "warning" : "danger"
+//         }`}
+//       >
+//         {row.status}
+//       </span>
+//     ),
+//   },
+// ];
 
 
 
